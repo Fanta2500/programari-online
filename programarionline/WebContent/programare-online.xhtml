@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JSF 2.2: Blank Starting-Point Project</title>
+	<h:outputScript library = "js" name = "checkdate.js"  />
+	<h:outputScript>
+    	var disabledDays = #{dateTime.disableDates};
+	</h:outputScript>
+	<style>
+		.Bimage {background-image:url("resources/images/download.jpg")}
+	</style>
+	
+	
+</h:head>
+
+<h:body styleClass="Bimage">
+	
+	<h:form>
+	<p:growl id="msgs" showDetail="true" />
+	<p:panel id="basic" header="Programare Dr Corbu Andrei" style="margin-bottom:20px; text-align:center">
+		<h:panelGrid columns="2" cellpadding="10">
+            <h:graphicImage name="images/doctor-clinic-illustration_1270-69.png" />
+		
+			<h:panelGrid rows = "4" columns="2" cellpadding="10" >
+				
+				<p:messages id="messages" closable="true">
+		        	<p:effect type="pulsate" event="load" delay="500" />
+		        </p:messages>
+ 				<p:outputLabel value="" />
+				
+				<p:outputLabel for="name" value="Nume pacient:" />
+			    <p:inputText id="name" value="#{dateTime.name}" />
+			    
+			    <p:outputLabel for="phone" value="Numar telefon:" />
+			    <p:inputText id="phone" value="#{dateTime.phone}"/>
+
+			    <p:outputLabel for="date" value="Data:" />
+	        	<p:calendar id="date" value="#{dateTime.date}" beforeShowDay="disableAllTheseDays" mindate="#{dateTime.minDate}" maxdate="#{dateTime.maxDate}">
+	        		<p:ajax event="dateSelect" listener="#{dateTime.onDateSelect}" update="time"/>
+	        	</p:calendar>
+
+	        	<p:outputLabel for="time" value="Ora:" />
+		        <p:selectOneMenu id="time" value="#{dateTime.time}" lazy="true" style="width:125px">
+		            <f:selectItem itemLabel="Selecteza ora" itemValue="#{dateTime.time}" />
+		            <f:selectItems value="#{dateTime.times}" />
+		        </p:selectOneMenu>
+		
+	        	<p:commandButton value="Creeaza programare" id="btnSubmit" 
+	        	action="#{dateTime.someActionControllerMethod}" styleClass="ui-priority-primary" update="messages" />
+	        	
+		    </h:panelGrid>
+		
+	</h:panelGrid>
+	</p:panel>
+	</h:form>    
+</h:body>	
+</html>

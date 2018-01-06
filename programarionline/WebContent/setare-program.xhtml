@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Setari program</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<p:panel id="basic" header="Setare program lucru" style="margin-bottom:20px; text-align:center">
+			<h:panelGrid columns="2" cellpadding="10">
+				<p:accordionPanel>
+			        <p:tab title="Luni">
+			            <h:panelGrid columns="2" cellpadding="10">
+			                <h:outputText
+			                    value="Lucrezi luni?" />
+			                <p:selectBooleanButton id="chkMonday" value="#{scheduleSetting.chkMonday}" onLabel="Lucru" offLabel="Nu lucru" style="width:120px" />
+			                
+			                <p:outputLabel for="monstarthour" value="Ora de inceput program:" />
+						    <p:inputText id="monstarthour" value="#{scheduleSetting.iMonStartHour}" />
+						    
+						    <p:outputLabel for="monendhour" value="Ora de final program:" />
+						    <p:inputText id="monendhour" value="#{scheduleSetting.iMonEndHour}" />
+     
+			            </h:panelGrid>
+			        </p:tab>
+			        <p:tab title="Marti">
+			            <h:panelGrid columns="1" cellpadding="10">
+			                <h:outputText value="Francis Ford Coppola's legendary..." />
+			            </h:panelGrid>
+			        </p:tab>
+			        <p:tab title="Miercuri">
+			            <h:panelGrid columns="1" cellpadding="10">
+			                <h:outputText value="After a break of more than 15 years..." />
+			            </h:panelGrid>
+			        </p:tab>
+			        <p:tab title="Joi">
+			            <h:panelGrid columns="1" cellpadding="10">
+			                <h:outputText value="After a break of more than 15 years..." />
+			            </h:panelGrid>
+			        </p:tab>
+			        <p:tab title="Vineri">
+			            <h:panelGrid columns="1" cellpadding="10">
+			                <h:outputText value="After a break of more than 15 years..." />
+			            </h:panelGrid>
+			        </p:tab>
+			        <p:tab title="Sambata">
+			            <h:panelGrid columns="1" cellpadding="10">
+			                <h:outputText value="After a break of more than 15 years..." />
+			            </h:panelGrid>
+			        </p:tab>
+			        <p:tab title="Duminica">
+			            <h:panelGrid columns="1" cellpadding="10">
+			                <h:outputText value="After a break of more than 15 years..." />
+			            </h:panelGrid>
+			        </p:tab>
+			    </p:accordionPanel>
+			    <p:panel header="Previzualizare program de lucru" style="margin-bottom:20px; text-align:center" >
+			    </p:panel>
+			</h:panelGrid>	
+		</p:panel>
+	</h:form>    
+</h:body>	
+</html>
